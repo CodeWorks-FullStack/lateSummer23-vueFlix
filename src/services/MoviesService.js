@@ -18,8 +18,10 @@ AppState.totalPages = res.data.total_pages
 
 async getMovieById(movieId){
   const res = await movieApi.get(`movie/${movieId}`)
+  const vids = await movieApi.get(`movie/${movieId}/videos`)
   logger.log('GOT MOVIE BY ID', res.data)
   AppState.activeMovie = new Movie(res.data)
+  AppState.activeMovieVideos = vids.data.results
 }
 
 async searchMovies(searchTerm){

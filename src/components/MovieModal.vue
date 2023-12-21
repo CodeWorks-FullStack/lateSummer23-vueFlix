@@ -36,6 +36,11 @@
                   <p class="fw-bold">budget or revenue: ${{ activeMovie.budget }}</p>
               </div>
             </section>
+            <section v-if="videos.length" class="row">
+              <div v-for="video in videos" :key="video.id" class="col-6">
+                <iframe :src="`https://www.youtube.com/watch?v=${video.key}`" frameborder="0"></iframe>
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -50,7 +55,10 @@ import { AppState } from '../AppState.js';
 
 export default{
   setup(){
-    return {activeMovie: computed(()=> AppState.activeMovie)}
+    return {
+      activeMovie: computed(()=> AppState.activeMovie),
+      videos: computed(()=> AppState.activeMovieVideos)
+    }
   }
 }
 </script>

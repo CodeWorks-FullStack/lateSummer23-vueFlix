@@ -12,6 +12,8 @@ export const AppState = reactive({
 
   /**@type {Movie} */
   activeMovie: null,
+/**@type {Object[]} */
+  activeMovieVideos: [],
 
 /** @type {Number} */
   pageNumber: 1,
